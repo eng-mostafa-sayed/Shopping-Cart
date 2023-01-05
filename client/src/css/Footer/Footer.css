@@ -1,7 +1,6 @@
-header {
-  grid-area: header;
+footer {
+  grid-area: footer;
   background: #2a5ea5;
-
   color: #fff;
   font-weight: bold;
   font-size: 20px;

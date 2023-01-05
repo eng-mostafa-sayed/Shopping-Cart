@@ -15,6 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "lol": "npm run sass && npm start",
     "sass": "gulp sass",
     "start": "react-scripts start",
     "build": "react-scripts build",
