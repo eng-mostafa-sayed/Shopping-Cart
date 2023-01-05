@@ -15,8 +15,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "lol": "npm run sass && npm start",
+    "dev": "npm run watch && npm start",
     "sass": "gulp sass",
+    "watch": "gulp watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
