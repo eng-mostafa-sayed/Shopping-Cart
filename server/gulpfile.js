@@ -20,7 +20,7 @@ gulp.task("watching", async function () {
   });
 });
 //////////////////////////////////////////////////////////////////////////////////////
-//training to convert scss to css
+//training to convert scss to css then put it to css file
 gulp.task("sass", async function () {
   gulp.src("index.scss").pipe(sass()).pipe(gulp.dest("css"));
 });
