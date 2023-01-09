@@ -6,7 +6,6 @@ function Products(props) {
 
   const openModal = (product) => {
     setProduct(product);
-    console.log(product);
   };
 
   const closeModal = () => {
