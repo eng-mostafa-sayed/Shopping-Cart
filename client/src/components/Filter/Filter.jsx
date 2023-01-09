@@ -1,13 +1,17 @@
 import React from "react";
 import "./Filter.scss";
-function Filter() {
+function Filter(props) {
   return (
     <div className="filter-wrapper">
       <h2 className="filter-title"> Filter </h2>
       <div className="no-of-products">number of products {4}</div>
       <div className="filter-by-size">
         <span>Filter</span>
-        <select className="filter-size-select">
+        <select
+          className="filter-size-select"
+          onChange={props.handelFilterBySize}
+          value={props.size}
+        >
           <option value="All">All</option>
           <option value="XS">XS</option>
           <option value="S">S</option>
@@ -17,11 +21,15 @@ function Filter() {
           <option value="XXL">XXL</option>
         </select>
       </div>
-      <div className="filter-by-size">
+      <div className="filter-by-sort">
         <span>Order</span>
-        <select className="filter-size-select">
+        <select
+          className="filter-sort-select"
+          onChange={props.handelFilterBySort}
+          value={props.sort}
+        >
           <option value="latest">Latest</option>
-          <option value="lower">Lower</option>
+          <option value="lowest">Lowest</option>
           <option value="highest">Highest</option>
         </select>
       </div>
