@@ -49,7 +49,7 @@ function App() {
     const cartItemsClone = [...cartItems];
     var isProductExist = false;
     cartItemsClone.forEach((p) => {
-      if (p.id == product.id) {
+      if (p.id === product.id) {
         p.qty++;
         isProductExist = true;
       }
@@ -64,7 +64,7 @@ function App() {
   });
   const removeFromCart = (product) => {
     const cartItemsClone = [...cartItems];
-    setCartItems(cartItemsClone.filter((p) => p.id != product.id));
+    setCartItems(cartItemsClone.filter((p) => p.id !== product.id));
   };
 
   return (
