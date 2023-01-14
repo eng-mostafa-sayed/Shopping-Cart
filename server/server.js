@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use("/", router);
 
-app.listen(5001, () => {
-  console.log(`http://localhost:${5001}`);
+const port = 5001;
+app.listen(port, () => {
+  console.log(`http://localhost:${port}`);
 });
