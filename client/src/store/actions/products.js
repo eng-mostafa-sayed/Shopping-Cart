@@ -1,21 +1,49 @@
-import { FETCH_PRODUCTS } from "./types";
-import axios from "axios";
+import { FETCH_PRODUCTS, FILTER_SIZE, FILTER_SORT } from "./types";
 export const fetchProducts = () => {
   return async (dispatch) => {
-    const res = await axios.get("http://localhost:5000/api/products");
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: FETCH_PRODUCTS,
+          data: data,
+        });
+      });
+  };
+};
+export const filteredSize = (products, value) => {
+  return (dispatch) => {
+    let productsClone = [...products];
+
+    let newProducts = productsClone.filter(
+      (p) => p.sizes.indexOf(value) !== -1
+    );
+
     dispatch({
-      type: FETCH_PRODUCTS,
-      data: res.data,
+      type: FILTER_SIZE,
+      data: { size: value, products: value === "All" ? products : newProducts },
     });
-    console.log("response");
-    console.log(res.data);
-    // fetch("/api/products")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     dispatch({
-    //       type: FETCH_PRODUCTS,
-    //       data: data,
-    //     });
-    //   });
+  };
+};
+
+export const filteredSort = (products, value) => {
+  return (dispatch) => {
+    let productsClone = [...products];
+    let newProducts = productsClone.sort(function (a, b) {
+      if (value === "lowest") {
+        return a.price - b.price;
+      } else if (value === "highest") {
+        return b.price - a.price;
+      } else {
+        return a.id < b.id ? 1 : -1;
+      }
+    });
+    dispatch({
+      type: FILTER_SORT,
+      data: {
+        sort: value,
+        products: newProducts,
+      },
+    });
   };
 };
