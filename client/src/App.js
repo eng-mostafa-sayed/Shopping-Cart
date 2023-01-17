@@ -48,29 +48,29 @@ function App() {
   //   }
   // };
 
-  const addToCart = (product) => {
-    const cartItemsClone = [...cartItems];
-    var isProductExist = false;
-    cartItemsClone.forEach((p) => {
-      if (p._id === product._id) {
-        p.qty++;
-        isProductExist = true;
-      }
-    });
-    if (!isProductExist) {
-      cartItemsClone.push({ ...product, qty: 1 });
-    }
-    setCartItems(cartItemsClone);
-  };
+  // const addToCart = (product) => {
+  //   const cartItemsClone = [...cartItems];
+  //   var isProductExist = false;
+  //   cartItemsClone.forEach((p) => {
+  //     if (p._id === product._id) {
+  //       p.qty++;
+  //       isProductExist = true;
+  //     }
+  //   });
+  //   if (!isProductExist) {
+  //     cartItemsClone.push({ ...product, qty: 1 });
+  //   }
+  //   setCartItems(cartItemsClone);
+  // };
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }, [cartItems]);
 
-  const removeFromCart = (product) => {
-    const cartItemsClone = [...cartItems];
-    setCartItems(cartItemsClone.filter((p) => p._id !== product._id));
-  };
+  // const removeFromCart = (product) => {
+  //   const cartItemsClone = [...cartItems];
+  //   setCartItems(cartItemsClone.filter((p) => p._id !== product._id));
+  // };
 
   return (
     <Provider store={store}>
@@ -78,7 +78,7 @@ function App() {
         <Header />
         <main>
           <div className="wrapper">
-            <Products products={products} addToCart={addToCart} />
+            <Products products={products} />
             <Filter
               productsNumber={products.length}
               // handelFilterBySize={handelFilterBySize}
@@ -87,11 +87,7 @@ function App() {
               sort={sort}
             />
           </div>
-          <Cart
-            cartItems={cartItems}
-            itemsLength={cartItems.length}
-            removeFromCart={removeFromCart}
-          />
+          <Cart cartItems={cartItems} itemsLength={cartItems.length} />
         </main>
         <Footer />
       </div>
