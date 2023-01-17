@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import CheckoutForm from "../CheckoutForm/Checkout";
 import Bounce from "react-reveal/Bounce";
 const Cart = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -33,7 +33,7 @@ const Cart = (props) => {
         <Bounce bottom cascade>
           <div className="cart-items">
             {props.cartItems.map((item) => (
-              <div className="cart-item" key={item.id}>
+              <div className="cart-item" key={item._id}>
                 <img src={item.imageUrl} alt={item.title} />
                 <div className="cart-info">
                   <p>title: {item.title}</p>

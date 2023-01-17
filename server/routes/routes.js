@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.get("/api/products", async (req, res) => {
   const products = await product.find();
+  console.log("fetched");
   res.send(products);
 });
 router.post("/api/products", async (req, res) => {
