@@ -1,15 +1,5 @@
-export const words = {
-  headerTitle: "Shopping Cart",
-  footerTitle: "© CopyRight Mostafa-Sayed @2023",
-  cartHeader: "There is products in cart:",
-  content: "content",
-  cartTitle: "Title",
-  cartQty: "qty",
-  cartPrice: "price",
-  removeBtn: "Remove",
-  selectProducts: "select products",
-  total: "Total",
-  checkout: "Checkout",
-  name: "Name",
-  email: "Email",
-};
+export const words =  {
+    headerTitle: 'Shopping Cart',
+    footerTitle: '© CopyRight HamzaNabil @2021',
+    content: 'Content'
+}

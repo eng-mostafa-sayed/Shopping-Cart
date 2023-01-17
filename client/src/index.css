@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body,
+
 #root {
   height: 100vh;
 }
@@ -28,7 +28,8 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.wrapper .product-wrapper {
+
+.wrapper .products-wrapper {
   width: 68%;
 }
 

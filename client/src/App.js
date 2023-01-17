@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Cart from "./components/Cart/Cart";
+import Filter from "./components/Filter/Filter";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-//import { words } from "./words";
-import data from "./data.json";
 import Products from "./components/Products/Products";
-import Filter from "./components/Filter/Filter";
-import Cart from "./components/Cart/Cart";
 import { Provider } from "react-redux";
+// import { words } from "./words";
+import data from "./data.json";
 import store from "./store/store";
 
 function App() {
   const [products, setProducts] = useState(data);
-  const [size, setSize] = useState("");
   const [sort, setSort] = useState("");
+  const [size, setSize] = useState("");
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
-
   let p = data;
+
   const handelFilterBySize = (e) => {
     setSize(e.target.value);
     if (e.target.value === "All") {
@@ -52,7 +52,7 @@ function App() {
     const cartItemsClone = [...cartItems];
     var isProductExist = false;
     cartItemsClone.forEach((p) => {
-      if (p.id === product.id) {
+      if (p._id === product._id) {
         p.qty++;
         isProductExist = true;
       }
@@ -62,12 +62,14 @@ function App() {
     }
     setCartItems(cartItemsClone);
   };
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  });
+  }, [cartItems]);
+
   const removeFromCart = (product) => {
     const cartItemsClone = [...cartItems];
-    setCartItems(cartItemsClone.filter((p) => p.id !== product.id));
+    setCartItems(cartItemsClone.filter((p) => p._id !== product._id));
   };
 
   return (
