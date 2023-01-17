@@ -15,11 +15,9 @@ function Products(props) {
   const closeModal = () => {
     setProduct(false);
   };
-
   useEffect(() => {
     props.fetchProducts();
   }, []);
-
   return (
     <Bounce left cascade>
       <div className="products-wrapper">
@@ -50,7 +48,7 @@ function Products(props) {
 export default connect(
   (state) => {
     return {
-      products: state.products.products,
+      products: state.products.filterProducts,
     };
   },
   { fetchProducts }

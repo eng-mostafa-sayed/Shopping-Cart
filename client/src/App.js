@@ -16,37 +16,37 @@ function App() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
-  let p = data;
+  // let p = data;
 
-  const handelFilterBySize = (e) => {
-    setSize(e.target.value);
-    if (e.target.value === "All") {
-      setProducts(data);
-    } else {
-      let productsClone = [...p];
-      let newProducts = productsClone.filter(
-        (p) => p.sizes.indexOf(e.target.value) !== -1
-      );
+  // const handelFilterBySize = (e) => {
+  //   setSize(e.target.value);
+  //   if (e.target.value === "All") {
+  //     setProducts(data);
+  //   } else {
+  //     let productsClone = [...p];
+  //     let newProducts = productsClone.filter(
+  //       (p) => p.sizes.indexOf(e.target.value) !== -1
+  //     );
 
-      setProducts(newProducts);
-    }
-  };
-  const handelFilterBySort = (e) => {
-    let order = e.target.value;
-    setSort(order);
-    setSort(e.target.value);
-    let productsClone = [...products];
-    if (order === "highest") {
-      let newProducts = productsClone.sort((a, b) => b.price - a.price);
-      setProducts(newProducts);
-    } else if (order === "lowest") {
-      let newProducts = productsClone.sort((a, b) => a.price - b.price);
-      setProducts(newProducts);
-    } else if (order === "latest") {
-      let newProducts = productsClone.sort((a, b) => (a.id < b.id ? 1 : -1));
-      setProducts(newProducts);
-    }
-  };
+  //     setProducts(newProducts);
+  //   }
+  // };
+  // const handelFilterBySort = (e) => {
+  //   let order = e.target.value;
+  //   setSort(order);
+  //   setSort(e.target.value);
+  //   let productsClone = [...products];
+  //   if (order === "highest") {
+  //     let newProducts = productsClone.sort((a, b) => b.price - a.price);
+  //     setProducts(newProducts);
+  //   } else if (order === "lowest") {
+  //     let newProducts = productsClone.sort((a, b) => a.price - b.price);
+  //     setProducts(newProducts);
+  //   } else if (order === "latest") {
+  //     let newProducts = productsClone.sort((a, b) => (a.id < b.id ? 1 : -1));
+  //     setProducts(newProducts);
+  //   }
+  // };
 
   const addToCart = (product) => {
     const cartItemsClone = [...cartItems];
@@ -81,8 +81,8 @@ function App() {
             <Products products={products} addToCart={addToCart} />
             <Filter
               productsNumber={products.length}
-              handelFilterBySize={handelFilterBySize}
-              handelFilterBySort={handelFilterBySort}
+              // handelFilterBySize={handelFilterBySize}
+              // handelFilterBySort={handelFilterBySort}
               size={size}
               sort={sort}
             />
