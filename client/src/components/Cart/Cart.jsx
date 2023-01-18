@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
 import OrderModal from "./OrderModal";
 import { createOrder, clearOrder } from "../../store/actions/orders";
+import { words } from "../../words";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
@@ -36,10 +37,12 @@ function Cart(props) {
       <div className="cart-title">
         {props.cartItems.length === 0
           ? `cart empty`
-          : `There is ${props.cartItems.length}` +
-            `${
-              props.cartItems.length > 1 ? " products" : " product"
-            } in the cart`}
+          : `${words.cartHeader} ${
+              props.cartItems.length > 1 ? "are " : "is "
+            } ${props.cartItems.length}` +
+            `${props.cartItems.length > 1 ? " products" : " product"} ${
+              words.cartHeaderEnd
+            }`}
       </div>
       {/* Modal */}
       <OrderModal
@@ -54,11 +57,21 @@ function Cart(props) {
               <img src={item.imageUrl} alt="" />
               <div className="cart-info">
                 <div>
-                  <p> title {item.title} </p>
-                  <p> qty: {item.qty} </p>
-                  <p> price: ${item.price} </p>
+                  <p>
+                    {" "}
+                    {words.cartTitle} : {item.title}{" "}
+                  </p>
+                  <p>
+                    {words.cartQty}: {item.qty}{" "}
+                  </p>
+                  <p>
+                    {" "}
+                    {words.cartPrice}: ${item.price}{" "}
+                  </p>
                 </div>
-                <button onClick={() => props.removeCart(item)}>Remove</button>
+                <button onClick={() => props.removeCart(item)}>
+                  {words.removeBtn}
+                </button>
               </div>
             </div>
           ))}
@@ -72,7 +85,10 @@ function Cart(props) {
               return acc + p.price;
             }, 0)}{" "}
           </div>
-          <button onClick={() => setShowForm(true)}> select products </button>
+          <button onClick={() => setShowForm(true)}>
+            {" "}
+            {words.selectProducts}
+          </button>
         </div>
       )}
 
