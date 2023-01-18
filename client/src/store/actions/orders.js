@@ -1,4 +1,4 @@
-import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER } from "./types";
+import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER, FETCH_ORDERS } from "./types";
 
 export const createOrder = (order) => {
   return (dispatch) => {
@@ -19,5 +19,18 @@ export const createOrder = (order) => {
 export const clearOrder = (order) => {
   return (dispatch) => {
     dispatch({ type: CLEAR_ORDER });
+  };
+};
+
+export const fetchOrders = () => {
+  return (dispatch) => {
+    fetch("https://shopping-cart-oryj.onrender.com/api/orders")
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({
+          type: FETCH_ORDERS,
+          data: { orders: data },
+        });
+      });
   };
 };
