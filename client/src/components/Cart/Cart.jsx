@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
 import Checkout from "../CheckoutForm/Checkout";
 import Bounce from "react-reveal/Bounce";
-import Modal from "react-modal";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
 import OrderModal from "./OrderModal";
+import { createOrder, clearOrder } from "../../store/actions/orders";
+
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
-  const [order, setOrder] = useState(false);
   const [value, setValue] = useState("");
 
   const submitOrder = (e) => {
@@ -17,11 +17,12 @@ function Cart(props) {
       name: value.name,
       email: value.email,
     };
-    setOrder(order);
+    props.createOrder(order);
   };
 
   const closeModal = () => {
-    setOrder(false);
+    props.clearOrder();
+    setShowForm(false);
   };
 
   const handleChange = (e) => {
@@ -30,22 +31,21 @@ function Cart(props) {
       [e.target.name]: e.target.value,
     }));
   };
-
   return (
     <div className="cart-wrapper">
       <div className="cart-title">
-        {" "}
-        {props.cartItems.length === 0 ? (
-          "Cart Empty"
-        ) : (
-          <p>There is {props.cartItems.length} products in cart</p>
-        )}{" "}
+        {props.cartItems.length === 0
+          ? `cart empty`
+          : `There is ${props.cartItems.length}` +
+            `${
+              props.cartItems.length > 1 ? " products" : " product"
+            } in the cart`}
       </div>
       {/* Modal */}
       <OrderModal
         cartItems={props.cartItems}
+        order={props.order}
         closeModal={closeModal}
-        order={order}
       />
       <Bounce bottom cascade>
         <div className="cart-items">
@@ -90,8 +90,9 @@ function Cart(props) {
 export default connect(
   (state) => {
     return {
+      order: state.order.order,
       cartItems: state.cart.cartItems,
     };
   },
-  { removeCart }
+  { removeCart, createOrder, clearOrder }
 )(Cart);
