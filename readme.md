@@ -18,9 +18,10 @@
 > FrontEnd : [here](https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/) or https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/
 
 > Backend : [here](https://shopping-cart-oryj.onrender.com) or https://shopping-cart-oryj.onrender.com
-> [react.js]: https://reactjs.org
-> [node.js]: http://nodejs.org
-> [express.js]: http://expressjs.com
-> [redux.js]: https://redux.js.org/
-> [sass]: https://sass-lang.com/
-> [gulp]: https://gulpjs.com/
+
+[react.js]: https://reactjs.org
+[node.js]: http://nodejs.org
+[express.js]: http://expressjs.com
+[redux.js]: https://redux.js.org/
+[sass]: https://sass-lang.com/
+[gulp]: https://gulpjs.com/
