@@ -3,17 +3,18 @@ import "../../css/Filter/Filter.css";
 import Flip from "react-reveal/Flip";
 import { connect } from "react-redux";
 import { filteredSize, filteredSort } from "../../store/actions/products";
+import { words } from "../../words";
 function Filter(props) {
   return (
     <Flip left>
       {props.filterProducts && (
         <div className="filter-wrapper">
-          <h2 className="filter-title"> Filter </h2>
+          <h2 className="filter-title"> {words.filterTitle} </h2>
           <div className="no-of-products">
-            number of products {props.filterProducts.length}
+            {words.filterNoOfProducts} {props.filterProducts.length}
           </div>
           <div className="filter-by-size">
-            <span>Filter</span>
+            <span>{words.filterTitle}</span>
             <select
               className="filter-size-select"
               onChange={(e) =>
@@ -31,7 +32,7 @@ function Filter(props) {
             </select>
           </div>
           <div className="filter-by-sort">
-            <span>Order</span>
+            <span>{words.filterOrder}</span>
             <select
               className="filter-sort-select"
               onChange={(e) =>

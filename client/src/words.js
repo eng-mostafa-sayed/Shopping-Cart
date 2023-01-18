@@ -2,7 +2,8 @@ export const words = {
   headerTitle: "Shopping Cart",
   footerTitle: "© CopyRight Mostafa Sayed @2023",
   content: "Content",
-  cartHeader: "There is products in cart:",
+  cartHeader: "There ",
+  cartHeaderEnd: "in cart",
   cartTitle: "Title",
   cartQty: "qty",
   cartPrice: "price",
@@ -12,4 +13,7 @@ export const words = {
   checkout: "Checkout",
   name: "Name",
   email: "Email",
+  filterNoOfProducts: "number of products",
+  filterTitle: "Filter",
+  filterOrder: "Order",
 };
