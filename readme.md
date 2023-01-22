@@ -7,7 +7,7 @@
 - [SASS] - Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
 - [GULP] -JavaScript to automate slow, repetitive workflows and compose them into efficient build pipelines.
 - [Node.js] - is an open-source, cross-platform JavaScript runtime environment for backend.
-- [Express.js] - a node js web application framework.
+- [Express.js] - a node js web application framework. -[react-reveal] - is an animation framework for React.
 
 ### Features
 
@@ -25,3 +25,4 @@
 [redux.js]: https://redux.js.org/
 [sass]: https://sass-lang.com/
 [gulp]: https://gulpjs.com/
+[react-reveal]: https://www.react-reveal.com/
