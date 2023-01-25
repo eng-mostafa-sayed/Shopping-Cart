@@ -17,3 +17,22 @@ export const words = {
   filterTitle: "Filter",
   filterOrder: "Order",
 };
+export const arabicWords = {
+  headerTitle: "عربه المشتريات",
+  footerTitle: "© CopyRight Mostafa Sayed @2023",
+  content: "المحتوي",
+  cartHeader: "يوجد ",
+  cartHeaderEnd: "في العربه",
+  cartTitle: "العنوان",
+  cartQty: "الكميه",
+  cartPrice: "السعر",
+  removeBtn: "حذف",
+  selectProducts: "اختيار المنتجات",
+  total: "السعر الكلي",
+  checkout: "Checkout",
+  name: "الاسم",
+  email: "البريد الالكتروني",
+  filterNoOfProducts: "عدد المنتجات",
+  filterTitle: "تصنيف",
+  filterOrder: "طلب",
+};
