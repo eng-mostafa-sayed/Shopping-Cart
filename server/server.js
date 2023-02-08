@@ -4,8 +4,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const env = require("env");
 require("./config/DBConnections");
+
 const productRouter = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const stripeRoutes = require("./routes/stripRoutes");
 
 const app = express();
 //middleware
@@ -13,6 +15,7 @@ app.use(cors({ credentials: true, origin: true }));
 
 app.use(bodyParser.json());
 
+app.use("/", stripeRoutes);
 app.use("/", productRouter);
 app.use("/", orderRoutes);
 

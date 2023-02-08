@@ -1,10 +1,11 @@
-const router = require("express").Router;
+const express = require("express");
+const router = express.Router();
 // calling the env file
 require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIP_KEY);
 
-router.post("/create-checkout-session", async (req, res) => {
+router.post("api/strip/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -19,11 +20,11 @@ router.post("/create-checkout-session", async (req, res) => {
       },
     ],
     mode: "payment",
-    success_url: "http://localhost:4242/success",
-    cancel_url: "http://localhost:4242/cancel",
+    success_url: `${process.env.CLIENT_URL}/checkout-success`,
+    cancel_url: `${process.env.CLIENT_URL}/checkout-cancel`,
   });
 
-  res.redirect(303, session.url);
+  res.send({ url: session.url });
 });
 
 module.exports = router;

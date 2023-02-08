@@ -1,7 +1,7 @@
 import { FETCH_PRODUCTS, FILTER_SIZE, FILTER_SORT } from "./types";
 export const fetchProducts = () => {
   return async (dispatch) => {
-    fetch("https://shopping-cart-oryj.onrender.com/api/products")
+    fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
       .then((data) => {
         dispatch({

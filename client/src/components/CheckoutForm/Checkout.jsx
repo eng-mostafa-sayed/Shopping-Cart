@@ -2,7 +2,13 @@ import React from "react";
 import "../../css/CheckoutForm/Checkout.css";
 import Input from "../Input/Input";
 import Zoom from "react-reveal/Zoom";
+
+import { connect } from "react-redux";
+import { getCart } from "../../store/actions/cart";
+
 import { words } from "../../words";
+import PaymentButton from "../paymentButton/paymentButton";
+
 function Checkout(props) {
   return (
     <>
@@ -26,9 +32,29 @@ function Checkout(props) {
                 onChange={props.handleChange}
                 name="email"
               />
-
+              <Input
+                label="phone"
+                type="txt"
+                onChange={props.handleChange}
+                name="phone"
+              />
+              <Input
+                label="address"
+                type="txt"
+                onChange={props.handleChange}
+                name="address"
+              />{" "}
+              <label for="shipping">shipping</label>
+              <select
+                name="shipping"
+                id="shipping"
+                onChange={props.handleChange}
+              >
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
               <div>
-                <button type="submit"> {words.checkout} </button>
+                <PaymentButton />
               </div>
             </form>
           </Zoom>
@@ -38,4 +64,11 @@ function Checkout(props) {
   );
 }
 
-export default Checkout;
+export default connect(
+  (state) => {
+    return {
+      products: state.cart.getCart,
+    };
+  },
+  { getCart }
+)(Checkout);

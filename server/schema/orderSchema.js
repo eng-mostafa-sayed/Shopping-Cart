@@ -2,26 +2,37 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    name: String,
-    email: String,
-    products: [{ id: String, quantity: Number }],
-    subTotal: Number,
-    total: Number,
+    name: { type: String },
+    email: { type: String },
+    phone: { type: String },
+    products: [
+      {
+        productID: { type: String },
+        productDesc: { type: String },
+        productQTY: { type: Number },
+      },
+    ],
+    subTotal: { type: Number },
+    total: { type: Number },
 
     shipping: {
-      address: {
-        street: String,
-        city: String,
-        buildingNo: String,
-        state: String,
-        country: String,
-      },
-      email: String,
-      name: String,
-      phone: String,
+      address: { type: String },
+      // street: String,
+      // city: String,
+      // buildingNo: String,
+      // state: String,
+      // country: String,
     },
-    deliveryStatus: ["pending", "done", "rejected"],
-    paymentStatus: ["paid", "cash on deliver"],
+    deliveryStatus: {
+      type: String,
+      enum: ["pending", "done", "rejected"],
+      default: "pending",
+    },
+    paymentStatus: {
+      type: String,
+      enum: ["paid", "cash on deliver"],
+      default: "cash on deliver",
+    },
   },
   { timestamps: true }
 );

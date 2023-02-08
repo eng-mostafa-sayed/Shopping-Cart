@@ -4,6 +4,8 @@ import Checkout from "../CheckoutForm/Checkout";
 import Bounce from "react-reveal/Bounce";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import { getCart } from "../../store/actions/cart";
+
 import OrderModal from "./OrderModal";
 import { createOrder, clearOrder } from "../../store/actions/orders";
 import { words } from "../../words";
@@ -17,7 +19,13 @@ function Cart(props) {
     const order = {
       name: value.name,
       email: value.email,
+      products: props.cartItems,
+      subTotal: value.subTotal,
+      total: value.total,
+      shipping: { address: value.address },
+      phone: value.phone,
     };
+    console.log(order.products);
     props.createOrder(order);
   };
 
@@ -110,5 +118,5 @@ export default connect(
       cartItems: state.cart.cartItems,
     };
   },
-  { removeCart, createOrder, clearOrder }
+  { removeCart, createOrder, clearOrder, getCart }
 )(Cart);
