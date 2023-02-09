@@ -44,7 +44,7 @@ function Checkout(props) {
                 onChange={props.handleChange}
                 name="address"
               />{" "}
-              <label for="shipping">shipping</label>
+              <label htmlFor="shipping">shipping</label>
               <select
                 name="shipping"
                 id="shipping"

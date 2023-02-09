@@ -8,9 +8,23 @@ router.get("/api/orders", async (req, res) => {
 });
 
 router.post("/api/orders", async (req, res) => {
-  //const order = await new Order(req.body).save();
-  const order = await new Order({ p }).save();
-  res.send(order);
+  try {
+    //const order = await new Order(req.body).save();
+    const order = await new Order({
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      products: req.body.products,
+      subTotal: req.body.subTotal,
+      total: req.body.total,
+      shipping: req.body.shipping,
+      deliveryStatus: req.body.deliveryStatus,
+      paymentStatus: req.body.paymentStatus,
+    }).save();
+    res.send(order);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 router.delete("/api/orders/:id", async (req, res) => {
   const deletedOrder = await Order.findByIdAndDelete(req.params.id);

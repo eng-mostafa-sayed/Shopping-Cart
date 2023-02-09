@@ -15,13 +15,19 @@ function Cart(props) {
   const [value, setValue] = useState("");
 
   const submitOrder = (e) => {
+    //send data to the api
+    const total = props.cartItems.reduce(
+      (acc, item) => acc + item.price * item.qty,
+      0
+    );
+
     e.preventDefault();
     const order = {
       name: value.name,
       email: value.email,
       products: props.cartItems,
-      subTotal: value.subTotal,
-      total: value.total,
+      subTotal: total,
+      total: total,
       shipping: { address: value.address },
       phone: value.phone,
     };

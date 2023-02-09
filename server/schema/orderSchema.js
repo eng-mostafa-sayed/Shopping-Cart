@@ -7,11 +7,13 @@ const orderSchema = new mongoose.Schema(
     phone: { type: String },
     products: [
       {
-        productID: { type: String },
-        productDesc: { type: String },
-        productQTY: { type: Number },
+        _id: { type: String },
+        desc: { type: String },
+        qty: { type: Number },
+        title: { type: String },
       },
     ],
+
     subTotal: { type: Number },
     total: { type: Number },
 
