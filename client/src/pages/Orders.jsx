@@ -42,11 +42,13 @@ function Orders(props) {
                   style={{
                     background: `${
                       order.deliveryStatus === "pending"
-                        ? "orange"
+                        ? "#ffcb00"
                         : order.deliveryStatus === "done"
-                        ? "green"
-                        : "red"
+                        ? "#07e100"
+                        : "#ec3a3a"
                     }`,
+                    color: "black",
+                    fontSize: "larger",
                   }}
                 >
                   {order.deliveryStatus}
