@@ -19,6 +19,8 @@ function Orders(props) {
             <th> name </th>
             <th> email </th>
             <th> items </th>
+            <th> total </th>
+            <th> delivery Status </th>
           </tr>
         </thead>
         <tbody>
@@ -29,12 +31,25 @@ function Orders(props) {
                 <td>{order.name}</td>
                 <td>{order.email}</td>
                 <td>
-                  {props.cartItems.map((p) => (
-                    <p>
-                      {" "}
+                  {order.products.map((p) => (
+                    <p key={order.name}>
                       {p.title} , qty: {p.qty}
                     </p>
                   ))}
+                </td>
+                <td>{order.total}</td>
+                <td
+                  style={{
+                    background: `${
+                      order.deliveryStatus === "pending"
+                        ? "orange"
+                        : order.deliveryStatus === "done"
+                        ? "green"
+                        : "red"
+                    }`,
+                  }}
+                >
+                  {order.deliveryStatus}
                 </td>
               </tr>
             ))}

@@ -2,7 +2,7 @@ import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER, FETCH_ORDERS } from "./types";
 
 export const createOrder = (order) => {
   return (dispatch) => {
-    fetch("https://shopping-cart-oryj.onrender.com/api/orders", {
+    fetch("http://localhost:5000/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order),
@@ -11,7 +11,7 @@ export const createOrder = (order) => {
       .then((data) => {
         dispatch({ type: CREATE_ORDER, data: { order: data } });
       });
-    localStorage.clear("cartItems");
+    localStorage.clear();
     dispatch({ type: CLEAR_CART });
   };
 };
@@ -24,7 +24,7 @@ export const clearOrder = (order) => {
 
 export const fetchOrders = () => {
   return (dispatch) => {
-    fetch("https://shopping-cart-oryj.onrender.com/api/orders")
+    fetch("http://localhost:5000/api/orders")
       .then((response) => response.json())
       .then((data) => {
         dispatch({

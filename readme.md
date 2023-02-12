@@ -8,6 +8,7 @@
 - [GULP] -JavaScript to automate slow, repetitive workflows and compose them into efficient build pipelines.
 - [Node.js] - is an open-source, cross-platform JavaScript runtime environment for backend.
 - [Express.js] - a node js web application framework. -[react-reveal] - is an animation framework for React.
+- [Strip] - is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes. Accept payments and scale faster
 
 ### Features
 
@@ -17,7 +18,7 @@
 
 > FrontEnd : [here](https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/) or https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/
 
-> Backend : [here](https://shopping-cart-oryj.onrender.com) or https://shopping-cart-oryj.onrender.com
+> Backend : [here](http://localhost:5000) or http://localhost:5000
 
 [react.js]: https://reactjs.org
 [node.js]: http://nodejs.org
@@ -26,3 +27,4 @@
 [sass]: https://sass-lang.com/
 [gulp]: https://gulpjs.com/
 [react-reveal]: https://www.react-reveal.com/
+[strip]: https://stripe.com/
