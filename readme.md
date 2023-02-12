@@ -8,6 +8,7 @@
 - [GULP] -JavaScript to automate slow, repetitive workflows and compose them into efficient build pipelines.
 - [Node.js] - is an open-source, cross-platform JavaScript runtime environment for backend.
 - [Express.js] - a node js web application framework. -[react-reveal] - is an animation framework for React.
+- [Strip] - is a suite of APIs powering online payment processing and commerce solutions for internet businesses of all sizes. Accept payments and scale faster
 
 ### Features
 
@@ -26,3 +27,4 @@
 [sass]: https://sass-lang.com/
 [gulp]: https://gulpjs.com/
 [react-reveal]: https://www.react-reveal.com/
+[strip]: https://stripe.com/
