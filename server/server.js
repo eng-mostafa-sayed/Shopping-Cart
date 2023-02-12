@@ -20,6 +20,7 @@ app.use("/", productRouter);
 app.use("/", orderRoutes);
 
 if (process.env.NODE_ENV === "production") {
+  console.log("production");
   app.use("/", express.static("public"));
   app.get("/", (req, res) => res.sendFile(__dirname + "public/index.html"));
 } else {
