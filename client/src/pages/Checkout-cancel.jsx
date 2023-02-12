@@ -1,7 +1,7 @@
 import React from "react";
 
-const ChekoutCancel = () => {
+const CheckoutCancel = () => {
   return <div>Canceled</div>;
 };
 
-export default ChekoutCancel;
+export default CheckoutCancel;
