@@ -9,13 +9,28 @@ import { getCart } from "../../store/actions/cart";
 import OrderModal from "./OrderModal";
 import { createOrder, clearOrder } from "../../store/actions/orders";
 import { words } from "../../words";
+import axios from "axios";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
   const [value, setValue] = useState("");
 
   const submitOrder = (e) => {
-    //send data to the api
+    const cartItems = props.cartItems;
+
+    axios
+      .post("http://localhost:5000/api/strip/create-checkout-session", {
+        cartItems,
+      })
+      .then((response) => {
+        if (response.data.url) {
+          console.log(response.data.url);
+          window.location.href = response.data.url;
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     const total = props.cartItems.reduce(
       (acc, item) => acc + item.price * item.qty,
       0
@@ -112,6 +127,7 @@ function Cart(props) {
         submitOrder={submitOrder}
         setShowForm={setShowForm}
         handleChange={handleChange}
+        value={value}
       />
     </div>
   );

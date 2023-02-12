@@ -11,7 +11,7 @@ export const createOrder = (order) => {
       .then((data) => {
         dispatch({ type: CREATE_ORDER, data: { order: data } });
       });
-    localStorage.clear("cartItems");
+
     dispatch({ type: CLEAR_CART });
   };
 };

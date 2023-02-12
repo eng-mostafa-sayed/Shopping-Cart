@@ -12,27 +12,24 @@ const PaymentButton = (props) => {
   const handleCheckOut = () => {
     console.log(props.cartItems);
     const cartItems = props.cartItems;
-    const list_data = [
-      cartItems.map(
-        (e) =>
-          `{price_data:{currency:"usd",product_data:{name:/'${e.title}/'},unit_amount:${e.price}}},quantity:${e.qty}`
-      ),
-    ];
-    console.log(list_data);
-    const res = axios
-      .post("http://localhost:5000/api/strip/create-checkout-session", {
-        list_data,
-      })
-      .then((response) => {
-        if (response.data.url) {
-          console.log(response.data.url);
-          window.location.href = response.data.url;
-        }
-      });
+
+    // axios
+    //   .post("http://localhost:5000/api/strip/create-checkout-session", {
+    //     cartItems,
+    //   })
+    //   .then((response) => {
+    //     if (response.data.url) {
+    //       console.log(response.data.url);
+    //       window.location.href = response.data.url;
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.message);
+    //   });
   };
   return (
     <>
-      <button onClick={() => handleCheckOut()}> Checkout</button>
+      <button onClick={() => handleCheckOut()}> Checkout & pay</button>
     </>
   );
 };

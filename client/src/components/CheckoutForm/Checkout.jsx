@@ -44,18 +44,14 @@ function Checkout(props) {
                 onChange={props.handleChange}
                 name="address"
               />{" "}
-              <label htmlFor="shipping">shipping</label>
-              <select
-                name="shipping"
-                id="shipping"
-                onChange={props.handleChange}
-              >
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-              <div>
-                <PaymentButton />
-              </div>
+              {props.value.email &&
+                props.value.name &&
+                props.value.phone &&
+                props.value.address && (
+                  <div>
+                    <PaymentButton />
+                  </div>
+                )}
             </form>
           </Zoom>
         </div>
