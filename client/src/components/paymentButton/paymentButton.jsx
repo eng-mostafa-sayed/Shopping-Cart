@@ -9,27 +9,10 @@ const PaymentButton = (props) => {
   useEffect(() => {
     props.getCart();
   }, []);
-  const handleCheckOut = () => {
-    console.log(props.cartItems);
-    const cartItems = props.cartItems;
 
-    // axios
-    //   .post("http://localhost:5000/api/strip/create-checkout-session", {
-    //     cartItems,
-    //   })
-    //   .then((response) => {
-    //     if (response.data.url) {
-    //       console.log(response.data.url);
-    //       window.location.href = response.data.url;
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message);
-    //   });
-  };
   return (
     <>
-      <button onClick={() => handleCheckOut()}> Checkout & pay</button>
+      <button> Checkout & pay</button>
     </>
   );
 };
