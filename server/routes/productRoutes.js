@@ -3,18 +3,29 @@ const product = require("../models/productModel");
 const router = express.Router();
 
 router.get("/api/products", async (req, res) => {
-  const products = await product.find();
-  console.log("fetched");
-  res.send(products);
+  try {
+    const products = await product.find();
+    res.send(products);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 router.post("/api/products", async (req, res) => {
-  const newProduct = new product(req.body);
-  const saveProduct = await newProduct.save();
-  res.send(saveProduct);
+  try {
+    const newProduct = new product(req.body);
+    const saveProduct = await newProduct.save();
+    res.send(saveProduct);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 router.delete("/api/products/:id", async (req, res) => {
-  const deletedProduct = await product.findByIdAndDelete(req.params.id);
-  res.send(deletedProduct);
+  try {
+    const deletedProduct = await product.findByIdAndDelete(req.params.id);
+    res.send(deletedProduct);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
 module.exports = router;

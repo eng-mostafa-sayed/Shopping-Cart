@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Orders from "./pages/Orders";
 import Navbar from "./components/Navbar/Navbar";
+import CheckoutSuccess from "./pages/Checkout-success";
+import CheckoutCancel from "./pages/Checkout-cancel";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,16 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} exact />
               <Route path="/orders" element={<Orders />} exact />
+              <Route
+                path="/checkout-success"
+                element={<CheckoutSuccess />}
+                exact
+              />
+              <Route
+                path="/checkout-cancel"
+                element={<CheckoutCancel />}
+                exact
+              />
             </Routes>
           </main>
           <Footer />

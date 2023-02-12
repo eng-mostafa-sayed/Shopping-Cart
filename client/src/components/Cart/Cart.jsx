@@ -4,20 +4,49 @@ import Checkout from "../CheckoutForm/Checkout";
 import Bounce from "react-reveal/Bounce";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import { getCart } from "../../store/actions/cart";
+
 import OrderModal from "./OrderModal";
 import { createOrder, clearOrder } from "../../store/actions/orders";
 import { words } from "../../words";
+import axios from "axios";
 
 function Cart(props) {
   const [showForm, setShowForm] = useState(false);
   const [value, setValue] = useState("");
 
   const submitOrder = (e) => {
+    const cartItems = props.cartItems;
+
+    axios
+      .post("http://localhost:5000/api/strip/create-checkout-session", {
+        cartItems,
+      })
+      .then((response) => {
+        if (response.data.url) {
+          console.log(response.data.url);
+          window.location.href = response.data.url;
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    const total = props.cartItems.reduce(
+      (acc, item) => acc + item.price * item.qty,
+      0
+    );
+
     e.preventDefault();
     const order = {
       name: value.name,
       email: value.email,
+      products: props.cartItems,
+      subTotal: total,
+      total: total,
+      shipping: { address: value.address },
+      phone: value.phone,
     };
+    console.log(order.products);
     props.createOrder(order);
   };
 
@@ -82,7 +111,7 @@ function Cart(props) {
           <div className="total">
             Total : $
             {props.cartItems.reduce((acc, p) => {
-              return acc + p.price;
+              return acc + p.price * p.qty;
             }, 0)}{" "}
           </div>
           <button onClick={() => setShowForm(true)}>
@@ -98,6 +127,7 @@ function Cart(props) {
         submitOrder={submitOrder}
         setShowForm={setShowForm}
         handleChange={handleChange}
+        value={value}
       />
     </div>
   );
@@ -110,5 +140,5 @@ export default connect(
       cartItems: state.cart.cartItems,
     };
   },
-  { removeCart, createOrder, clearOrder }
+  { removeCart, createOrder, clearOrder, getCart }
 )(Cart);

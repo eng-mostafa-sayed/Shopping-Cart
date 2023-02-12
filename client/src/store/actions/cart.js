@@ -1,4 +1,15 @@
-import { ADD_CART, REMOVE_CART } from "./types";
+import { ADD_CART, REMOVE_CART, GET_CART } from "./types";
+
+export const getCart = () => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: GET_CART,
+      data: {
+        cartItems: getState().cart.cartItems,
+      },
+    });
+  };
+};
 
 export const addToCart = (product) => {
   return (dispatch, getState) => {
