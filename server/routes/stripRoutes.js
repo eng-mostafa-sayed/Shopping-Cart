@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIP_KEY);
 
-router.post("api/strip/create-checkout-session", async (req, res) => {
+router.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {

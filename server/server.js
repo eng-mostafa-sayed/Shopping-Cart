@@ -15,7 +15,7 @@ app.use(cors({ credentials: true, origin: true }));
 
 app.use(bodyParser.json());
 
-app.use("/", stripeRoutes);
+app.use("/api/strip", stripeRoutes);
 app.use("/", productRouter);
 app.use("/", orderRoutes);
 
