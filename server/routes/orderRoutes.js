@@ -36,10 +36,13 @@ router.delete("/api/orders/:id", async (req, res) => {
 });
 
 router.patch("/api/orders:id", async (req, res) => {
-  try{const editOrder = await Order.findByIdAndUpdate(req.params.id, req.body);
-  await editOrder.save();
-  res.send(order);}
-catch (err) {
-    res.send(err.message);});
+  try {
+    const editOrder = await Order.findByIdAndUpdate(req.params.id, req.body);
+    await editOrder.save();
+    res.send(order);
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 module.exports = router;
