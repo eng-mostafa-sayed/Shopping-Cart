@@ -27,15 +27,19 @@ router.post("/api/orders", async (req, res) => {
   }
 });
 router.delete("/api/orders/:id", async (req, res) => {
-  const deletedOrder = await Order.findByIdAndDelete(req.params.id);
-  res.send(deletedOrder);
+  try {
+    const deletedOrder = await Order.findByIdAndDelete(req.params.id);
+    res.send(deletedOrder);
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
 router.patch("/api/orders:id", async (req, res) => {
-  const editOrder = await Order.findByIdAndUpdate(req.params.id, req.body);
+  try{const editOrder = await Order.findByIdAndUpdate(req.params.id, req.body);
   await editOrder.save();
-
-  res.send(order);
-});
+  res.send(order);}
+catch (err) {
+    res.send(err.message);});
 
 module.exports = router;
