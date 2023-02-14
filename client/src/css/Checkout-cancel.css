@@ -1,0 +1,18 @@
+.cancel-wrapper {
+  width: 750px;
+  margin: auto;
+  padding-top: 10vh;
+  text-align: center;
+}
+.cancel-wrapper .cancel-header {
+  color: red;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .cancel-wrapper {
+    width: auto;
+    margin: auto;
+    padding-top: 10vh;
+  }
+}

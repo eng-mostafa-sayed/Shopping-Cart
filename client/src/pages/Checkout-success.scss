@@ -1,0 +1,17 @@
+.success-wrapper {
+  width: 750px;
+  margin: auto;
+  padding-top: 10vh;
+  .success-header {
+    color: green;
+    text-align: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .success-wrapper {
+    width: auto;
+    margin: auto;
+    padding-top: 10vh;
+  }
+}

@@ -1,16 +1,9 @@
 import React from "react";
-
+import "../css/Checkout-cancel.css";
 const CheckoutCancel = () => {
   return (
-    <div
-      style={{
-        color: "red",
-        textAlign: "center",
-        margin: "auto",
-        paddingTop: "10vh",
-      }}
-    >
-      <h1>Canceled</h1>
+    <div className="cancel-wrapper">
+      <h1 className="cancel-header">Canceled</h1>
       <p>your order had been canceled </p>
     </div>
   );
