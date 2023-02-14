@@ -12,7 +12,19 @@
 
 ### Features
 
-### Build
+home page
+orders page
+strip payments
+
+### Build on your PC
+
+1- open new terminal then navigate to **server** then run this command `npm install` then run this `npm start`
+
+2- open new terminal then navigate to **client** run this command `npm install` then run this command `npm run sass`
+
+3- open new terminal then navigate to **client** then run this command `npm start`
+
+4- open your web browser then go to "http://localhost:3000/"
 
 ### Live Preview
 
