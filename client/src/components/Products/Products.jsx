@@ -20,7 +20,7 @@ function Products(props) {
     props.fetchProducts();
   }, []);
   return (
-    <Bounce left cascade>
+    <Bounce right cascade>
       <div className="products-wrapper">
         {props.products && props.products.length
           ? props.products.map((p) => (

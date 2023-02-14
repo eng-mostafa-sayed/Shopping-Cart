@@ -16,9 +16,9 @@
 
 ### Live Preview
 
-> FrontEnd : [here](https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/) or https://shopping-cart-adi4a95k6-eng-mostafa-sayed.vercel.app/
+> FrontEnd : [here](https://shopping-cart-orcin-eight.vercel.app/) or https://shopping-cart-orcin-eight.vercel.app/.vercel.app/
 
-> Backend : [here](http://localhost:5000) or http://localhost:5000
+> Backend : [here](https://shopping-cart-oryj.onrender.com) or https://shopping-cart-oryj.onrender.com
 
 [react.js]: https://reactjs.org
 [node.js]: http://nodejs.org

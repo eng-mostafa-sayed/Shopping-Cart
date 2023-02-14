@@ -19,9 +19,12 @@ function Cart(props) {
     const cartItems = props.cartItems;
 
     axios
-      .post("http://localhost:5000/api/strip/create-checkout-session", {
-        cartItems,
-      })
+      .post(
+        "https://shopping-cart-oryj.onrender.com/api/strip/create-checkout-session",
+        {
+          cartItems,
+        }
+      )
       .then((response) => {
         if (response.data.url) {
           console.log(response.data.url);
