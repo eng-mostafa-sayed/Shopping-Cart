@@ -16,7 +16,7 @@
 
 ### Live Preview
 
-> FrontEnd : [here](https://shopping-cart-orcin-eight.vercel.app/) or https://shopping-cart-orcin-eight.vercel.app/.vercel.app/
+> FrontEnd : [here](https://shopping-cart-orcin-eight.vercel.app/) or https://shopping-cart-orcin-eight.vercel.app/
 
 > Backend : [here](https://shopping-cart-oryj.onrender.com) or https://shopping-cart-oryj.onrender.com
 
